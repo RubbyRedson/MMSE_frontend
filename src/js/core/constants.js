@@ -1,0 +1,6 @@
+export const CONSTANTS = {
+	FOOTER_HEIGHT: 300,
+	BASE_URL: 'http://localhost:3000/v1',
+	HOME: 'HOME',
+	NAVIGATE_TO_PAGE: 'NAVIGATE_TO_PAGE',
+}
