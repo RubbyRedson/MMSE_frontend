@@ -19,7 +19,7 @@ class Footer extends Component {
 	render() {
 		return (
 			<div style={styles.container}>
-				The footer
+				The footer user is logged in: {this.props.user.isLoggedIn}
 			</div>
 		); 
 	}
@@ -36,7 +36,9 @@ const styles = {
 }
 
 const mapStateToProps = (state) => {
-	return {};
+	return {
+		user:state.user
+	};
 }
 
 const mapDispatchToProps = (dispatch) => {

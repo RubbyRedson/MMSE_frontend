@@ -1,8 +1,10 @@
 export const initialState = {
 	user: {
-		isLoggedIn: true,
+		isLoggedIn: 'true',
 	},
-	appState: {},
+	appState: {
+		clients: null
+	},
 	navigation: {
 		route: {name: "home"},
 	}

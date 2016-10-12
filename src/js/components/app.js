@@ -30,7 +30,7 @@ export default class App extends React.Component {
 	}
 
 	componentDidMount(){
-		registerListeners(store.dispatch); 
+		// registerListeners(store.dispatch);
 	}
 
 	render() {
@@ -39,7 +39,7 @@ export default class App extends React.Component {
 
 		//if(store.getState().user.isLoggedIn){
 		if(true){
-			footer = (<Footer />);
+			footer = (<Footer name={"som"}/>);
 		}
 
 		return (
