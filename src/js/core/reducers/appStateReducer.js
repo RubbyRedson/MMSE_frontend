@@ -11,6 +11,13 @@ export default function appStateReducer(state = initialState.appState, action){
 
 			return newState;
 
+		case CONSTANTS.SELECT_DASHBOARD_INDEX: 
+			var newState = Object.assign({}, state, {
+				selectedDashbordItem: action.payload
+			});
+
+			return newState;
+
 		default: 
 			return state; 
 	}

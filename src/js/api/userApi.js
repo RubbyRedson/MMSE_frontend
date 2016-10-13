@@ -1,5 +1,5 @@
 /**
- * Created by Nick on 10/12/2016.
+ * Created by victor on 2016-10-13
  */
 import { post, del, get, put } from '../core/http'
 import { CONSTANTS } from '../core/constants'
@@ -9,17 +9,17 @@ import { CONSTANTS } from '../core/constants'
  * @param dispatch The dispatcher that will tell the store that we have new stuff
  * Get all promotions from the API
  */
-export function getAllClients(dispatch) {
-
-    get('/user/login', (err, clients) => {
-        console.log(clients);
+export function login(user, dispatch, callback) {
+    post('/user/login', user, (err, response) => {
         if(!!err){
+            callback("Faulty credentials", null); 
             console.warn(err);
         }else{
             dispatch({
-                type: CONSTANTS.GOT_ALL_CLIENTS,
-                payload: clients
+                type: CONSTANTS.GOT_USER_LOGIN,
+                payload: response
             });
+            callback(null, null); 
         }
     });
 }

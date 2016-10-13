@@ -1,5 +1,4 @@
 export function saveData(key, data) {
-	console.log("In session storage"); 
     sessionStorage.setItem(key, data)
 }
 

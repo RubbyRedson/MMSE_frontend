@@ -1,9 +1,18 @@
 export const initialState = {
 	user: {
-		isLoggedIn: 'true',
+		isLoggedIn: false,
+		username: null, 
+		token: null, 
+		role: {
+		    id: null,
+		    title: null, 
+		    description: null, 
+		    auth: null
+		}
 	},
 	appState: {
-		clients: null
+		clients: null,
+		selectedDashbordItem: 0
 	},
 	navigation: {
 		route: {name: "home"},

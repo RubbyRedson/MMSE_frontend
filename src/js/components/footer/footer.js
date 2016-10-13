@@ -19,7 +19,9 @@ class Footer extends Component {
 	render() {
 		return (
 			<div style={styles.container}>
-				The footer user is logged in: {this.props.user.isLoggedIn}
+				<p style={styles.text}>
+					Bringing the event to you
+				</p>
 			</div>
 		); 
 	}

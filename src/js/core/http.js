@@ -6,11 +6,17 @@ import {getData, saveData, delData} from './persistentStorage'
 * Get the http headers
 */
 var getHeaders = function(){
-  //const jwt = getData('jwt'); 
+  var usr = getData('user'); 
+  var token = null; 
+  if(usr){
+    usr = JSON.parse(usr);
+    token = usr.token; 
+  }
+
   var headers = new Headers();
-  //headers.append('Authorization', 'Bearer ' + jwt); 
-  headers.append('Accept', 'application/json'); 
-  //headers.append('Content-Type', 'application/json'); 
+  headers.append('Authorization', token); 
+  //headers.append('Accept', 'application/json'); 
+  headers.append('Content-Type', 'application/json'); 
   return headers; 
 }
 
@@ -56,8 +62,9 @@ export function put(url, payload, callback) {
 * performs a HTTP Post
 */
 export function post(url, payload, callback) {
+  console.log(JSON.stringify(payload)); 
   fetch(CONSTANTS.BASE_URL + url, {
-      method: 'post',
+      method: 'POST',
       headers: getHeaders(), 
       body: JSON.stringify(payload)
   }).then(function(response) {

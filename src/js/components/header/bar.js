@@ -16,10 +16,32 @@ class Bar extends Component {
 
 	componentDidMount(){}
 
+	logout(){
+		this.props.logout(); 
+	}
+
 	render() {
+
+		let label = (<p></p>); 
+
+		if(this.props.user.isLoggedIn){
+			label = (
+				<p style={styles.right} onClick={this.logout.bind(this)}>
+					Logout: {this.props.user.username} 
+				</p>
+			); 
+		}else{
+			label = (
+				<p style={styles.right}>
+					Login to continue
+				</p>
+			);
+		}
+
 		return (
 			<div style={styles.container}>
-				<p style={styles.text}>The footer</p>
+				<h3 style={styles.text}>SEP - Swedish event planners</h3>
+				{label}
 			</div>
 		); 
 	}
@@ -32,15 +54,29 @@ const styles = {
 	},
 	text:{
 		color: COLORS.WHITE
+	},
+	right: {
+		color: COLORS.WHITE,
+		position: 'absolute',
+		top: 10, 
+		right: 10
 	}
 }
 
 const mapStateToProps = (state) => {
-	return {};
+	return {
+		user: state.user
+	};
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return {};
+	return {
+		logout: () => {
+			dispatch({
+				type: CONSTANTS.LOGOUT
+			}); 
+		} 
+	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bar); 

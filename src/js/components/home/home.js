@@ -3,6 +3,10 @@ import {connect} from 'react-redux'
 import {COLORS} from '../../core/colors'
 import {getAllClients} from '../../api/clientApi'
 import {CONSTANTS} from '../../core/constants'
+import {getData} from '../../core/persistentStorage'
+import Login from './login'
+import Dashboard from './dashboard'
+import Page from './page'
 
 class Home extends Component {
 
@@ -16,39 +20,51 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.props.getClients()
+       if(!this.props.user.isLoggedIn){
+       		var user = JSON.parse(getData("user")); 
+       		if(user){
+       			this.props.setUser(user); 
+       		}
+       }
     }
 
+
     render() {
-        console.log(this.props.clients);
-        return (
-            <div style={styles.container}>
-                <p>Hello mr Gureev. Here's a dance for you: </p>
-                <img src="img/spinner.gif"/>
-                {this.props.clients}
-            </div>
-        );
+       	if(this.props.user.isLoggedIn){
+	        return (
+	            <div style={styles.container}>
+	                <Dashboard />
+	                <Page />
+	            </div>
+	        );
+       	}else{
+       		return (
+       			<Login />
+       		); 
+       	}
     }
 }
 
 const styles = {
     container: {
-        padding: 20,
         backgroundColor: COLORS.WHITE
     },
 }
 
 const mapStateToProps = (state) => {
     return {
-        clients: state.appState.clients
+        user: state.user
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getClients: () => {
-            getAllClients(dispatch);
-        }
+    	setUser : (user) => {
+    		dispatch({
+                type: CONSTANTS.GOT_USER_LOGIN,
+                payload: user
+            });
+    	}
     };
 }
 

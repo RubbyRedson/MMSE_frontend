@@ -4,5 +4,6 @@ export const COLORS = {
 	WHITE: '#FFFFFF',
 	GRAY: '#CCC',
 	LIGHT_BLUE: '#44bae9',
-	BLUE: '#4998cb'
+	BLUE: '#4998cb',
+	ERROR: 'red'
 }
