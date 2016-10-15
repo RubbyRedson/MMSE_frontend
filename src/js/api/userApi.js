@@ -13,7 +13,7 @@ export function login(user, dispatch, callback) {
     post('/user/login', user, (err, response) => {
         if(!!err){
             callback("Faulty credentials", null); 
-            console.warn(err);
+            // console.warn(err);
         }else{
             dispatch({
                 type: CONSTANTS.GOT_USER_LOGIN,
