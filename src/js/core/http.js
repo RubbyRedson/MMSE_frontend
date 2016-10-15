@@ -1,94 +1,78 @@
-import { CONSTANTS } from './constants'
+import {CONSTANTS} from './constants'
 import {getData, saveData, delData} from './persistentStorage'
+import $ from "jquery"
 
 /**
-* @author Victor Axelsson
-* Get the http headers
-*/
-var getHeaders = function(){
-  var usr = getData('user'); 
-  var token = null; 
-  if(usr){
-    usr = JSON.parse(usr);
-    token = usr.token; 
-  }
+ * @author Victor Axelsson
+ * Get the http headers
+ */
+var getHeaders = function () {
+    var usr = getData('user');
+    var token = null;
+    if (usr) {
+        usr = JSON.parse(usr);
+        token = usr.token;
+    }
+    return {
+        'Authorization': token,
+        'Content-Type': 'application/json'
+    };
+}
 
-  var headers = new Headers();
-  headers.append('Authorization', token); 
-  //headers.append('Accept', 'application/json'); 
-  headers.append('Content-Type', 'application/json'); 
-  return headers; 
+function buildRequest(option, method, data) {
+    let request = {
+        url: CONSTANTS.BASE_URL + option,
+        method: method,
+        data: JSON.stringify(data),
+        headers: getHeaders()
+    }
+    return request
 }
 
 /**
-* @author Victor Axelsson
-* performs a HTTP Get
-*/
+ * @author Victor Axelsson
+ * performs a HTTP Get
+ */
 export function get(url, callback) {
-
-  console.log(CONSTANTS.BASE_URL + url); 
-    fetch(CONSTANTS.BASE_URL + url, {
-        method: 'get',
-        headers: getHeaders(), 
-    }).then(function(response) {
-        return response.json(); 
-    }).then(function(json){
-        callback(null, json);  
-    }).catch(function(err) {
-        callback(err, null); 
-    });
+    $.ajax(buildRequest(url, 'GET')).then((res) => {
+        callback(null, res);
+    }).fail(((err) => {
+        callback(err, null);
+    }));
 }
 
 /**
-* @author Victor Axelsson
-* performs a HTTP Put
-*/
+ * @author Victor Axelsson
+ * performs a HTTP Put
+ */
 export function put(url, payload, callback) {
-  fetch(CONSTANTS.BASE_URL + url, {
-      method: 'put',
-      headers: getHeaders(), 
-      body: JSON.stringify(payload)
-  }).then(function(response) {
-      return response.json(); 
-  }).then(function(json){
-      callback(null, json);  
-  }).catch(function(err) {
-      callback(err, null); 
-  });
+    $.ajax(buildRequest(url, 'PUT', payload)).then((res) => {
+        callback(null, res);
+    }).fail(((err) => {
+        callback(err, null);
+    }));
 }
 
 /**
-* @author Victor Axelsson
-* performs a HTTP Post
-*/
+ * @author Victor Axelsson
+ * performs a HTTP Post
+ */
 export function post(url, payload, callback) {
-  console.log(JSON.stringify(payload)); 
-  fetch(CONSTANTS.BASE_URL + url, {
-      method: 'POST',
-      headers: getHeaders(), 
-      body: JSON.stringify(payload)
-  }).then(function(response) {
-      return response.json(); 
-  }).then(function(json){
-      callback(null, json);  
-  }).catch(function(err) {
-      callback(err, null); 
-  });
+    $.ajax(buildRequest(url, 'POST', payload)).then((res) => {
+        callback(null, res);
+    }).fail(((err) => {
+        callback(err, null);
+    }));
 }
 
 /**
-* @author Victor Axelsson
-* performs a HTTP Delete
-*/
+ * @author Victor Axelsson
+ * performs a HTTP Delete
+ */
 export function del(url, callback) {
-  fetch(CONSTANTS.BASE_URL + url, {
-      method: 'del', // <- not 100% on this one, could be delete also
-      headers: getHeaders(), 
-  }).then(function(response) {
-      return response.json(); 
-  }).then(function(json){
-      callback(null, json);  
-  }).catch(function(err) {
-      callback(err, null); 
-  });
+    $.ajax(buildRequest(url, 'DEL')).then((res) => {
+        callback(null, res);
+    }).fail(((err) => {
+        callback(err, null);
+    }));
 }
