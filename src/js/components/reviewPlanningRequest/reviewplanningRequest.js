@@ -2,7 +2,7 @@ import  React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { COLORS } from '../../core/colors'
 import { CONSTANTS } from '../../core/constants'
-import { getPendingCustomerManagerRequests } from '../../api/planningRequestApi'
+import { getPendingCustomerManagerRequests, setRequestToApproved, setRequestToRejected } from '../../api/planningRequestApi'
 import Ingress from '../lib/ingress'
 
 class ReviewPlanningRequest extends Component {
@@ -22,10 +22,16 @@ class ReviewPlanningRequest extends Component {
 
 	approve(request){
 		console.log("Arroving: ", request); 
+		this.props.approve(request.id, () => {
+			this.props.getPlanningRequests(); 
+		}); 
 	}
 
 	reject(request){
 		console.log("Rejecting: ", request); 
+		this.props.reject(request.id, () => {
+			this.props.getPlanningRequests(); 
+		}); 
 	}
 
 	renderRequests(){
@@ -91,6 +97,12 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		getPlanningRequests: () => {
 			getPendingCustomerManagerRequests(dispatch); 
+		},
+		approve: (id, callback) => {
+			setRequestToApproved(id, dispatch, callback); 
+		},
+		reject: (id, callback) => {
+			setRequestToRejected(id, dispatch, callback);
 		}
 	};
 }

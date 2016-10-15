@@ -37,3 +37,43 @@ export function getPendingCustomerManagerRequests(dispatch) {
         }
     });
 }
+
+export function setRequestToApproved(id, dispatch, callback) {
+    var payload = {
+        status: 2
+    }; 
+
+    put('/customer_service_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }else{
+            /*
+            dispatch({
+                type: CONSTANTS.GOT_PENDING_CUSTOMER_MANAGER_REQUESTS,
+                payload: requests
+            });
+            */
+        }
+        callback(err, response); 
+    });
+}
+
+export function setRequestToRejected(id, dispatch, callback) {
+    var payload = {
+        status: 5
+    }; 
+    
+    put('/customer_service_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }else{
+            /*
+            dispatch({
+                type: CONSTANTS.GOT_PENDING_CUSTOMER_MANAGER_REQUESTS,
+                payload: requests
+            });
+            */
+        }
+        callback(err, response); 
+    });
+}
