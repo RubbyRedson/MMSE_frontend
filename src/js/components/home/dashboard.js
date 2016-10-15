@@ -22,20 +22,19 @@ class Dashboard extends Component {
     renderRows(){
       return (
           <div>
-            <DashboardItem name="Create planning request (Customer service team)" index={0}/>
-            <DashboardItem name="Review planning requests (Customer service manager)" index={1}/>
-            <DashboardItem name="Review client request (Financial manager)" index={2}/>
-            <DashboardItem name="Review client request (Administration department)" index={3}/>
-            <DashboardItem name="Review client request (Customer service manager)" index={4}/>
-            <DashboardItem name="Create new client (Customer service manager)" index={5}/>
-            <DashboardItem name="Modify client (Customer service manager)" index={6}/>
-            <DashboardItem name="Give client discount (Customer service manager)" index={7}/>
-            <DashboardItem name="Give client discount (Customer service manager)" index={8}/>
-            <DashboardItem name="Send request to subteam (Department manager manager)" index={9}/>
-            <DashboardItem name="Fill expected plan(Subteam)" index={10}/>
-            <DashboardItem name="Request aditional resource (Department manager)" index={11}/>
-            <DashboardItem name="Create job advertisement (HR team)" index={12}/>
-            <DashboardItem name="Request budget negotiation (Deparment manager)" index={13}/>
+            <DashboardItem name="2.1 Create planning request (Customer service team)" index={0} role_tag={"customer_service"} />
+            <DashboardItem name="2.2 Review planning requests (Customer service manager)" index={1} role_tag={"customer_service_manager"}/>
+            <DashboardItem name="2.3 Review client request (Financial manager)" index={2} role_tag={"financial_manager"}/>
+            <DashboardItem name="2.4 Review client request (Administration department)" index={3} role_tag={"administration_department"}/>
+            <DashboardItem name="2.5 Review client request (Customer service manager)" index={4} role_tag={"customer_service_manager"}/>
+            <DashboardItem name="3.1 Create new client (Customer service manager)" index={5} role_tag={"customer_service_manager"}/>
+            <DashboardItem name="3.2 Modify client (Customer service manager)" index={6} role_tag={"customer_service_manager"}/>
+            <DashboardItem name="3.4 Give client discount (Customer service manager)" index={7} role_tag={"customer_service_manager"}/>
+            <DashboardItem name="4.1 Send request to subteam (Department manager)" index={9} role_tag={"production_manager"}/>
+            <DashboardItem name="4.2 Fill expected plan(Subteam)" index={10} role_tag={"sub_team"} />
+            <DashboardItem name="5.1 Request aditional resource (Department manager)" index={11} role_tag={"production_manager"}/>
+            <DashboardItem name="5.2 Create job advertisement (HR team)" index={12} role_tag={"hr_team"}/>
+            <DashboardItem name="6.1 Request budget negotiation (Deparment manager)" index={13} role_tag={"production_manager"}/>
           </div>
       ); 
     }

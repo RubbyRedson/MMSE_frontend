@@ -23,17 +23,14 @@ class DashboardItem extends Component {
     }
 
     userIsAllowedToIndex(index, userRole){
-
-      console.log(index);
-      console.log(userRole);  
-      console.warn("Not implemented yet"); 
-
-      return true; 
+      return this.props.role_tag == userRole.tag; 
     }
 
     onClick(){
       if(this.userIsAllowedToIndex(this.props.index, this.props.user.role)){   
           this.props.selectIndex(this.props.index); 
+      }else{
+        alert("You are not allowed to do this"); 
       }
     }
 

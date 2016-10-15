@@ -19,7 +19,8 @@ export default function userReducer(state = initialState.user, action){
 				    id: action.payload.role.id,
 				    title: action.payload.role.title, 
 				    description: action.payload.role.description, 
-				    auth: action.payload.role.auth
+				    auth: action.payload.role.auth,
+				    tag: action.payload.role.tag
 				}
 			});
 
