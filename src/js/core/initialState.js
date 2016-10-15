@@ -12,7 +12,8 @@ export const initialState = {
 	},
 	appState: {
 		clients: null,
-		selectedDashbordItem: 0
+		selectedDashbordItem: 0,
+		customerServiceManagerRequests: null
 	},
 	navigation: {
 		route: {name: "home"},

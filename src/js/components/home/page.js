@@ -3,9 +3,11 @@ import {connect} from 'react-redux'
 import {COLORS} from '../../core/colors'
 import {CONSTANTS} from '../../core/constants'
 import {login} from '../../api/userApi'
+import CreatePlanningRequest from '../createPlanningRequest/createPlanningRequest'
+import ReviewPlanningRequest from '../reviewPlanningRequest/reviewPlanningRequest'
 
 class Page extends Component {
-
+  
     constructor(props, context) {
         super(props, context);
         this.state = this._getInitialState();
@@ -21,12 +23,12 @@ class Page extends Component {
       switch(this.props.index){
         case 0: 
           return (
-            <div>Create application</div>
+            <CreatePlanningRequest />
           ); 
 
         case 1: 
           return (
-            <div>Some other component</div>
+            <ReviewPlanningRequest />
           );
 
         case 2: 

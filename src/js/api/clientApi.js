@@ -10,8 +10,7 @@ import { CONSTANTS } from '../core/constants'
  * Get all promotions from the API
  */
 export function getAllClients(dispatch) {
-
-    get('/user/login', (err, clients) => {
+    get('/customer_service/client', (err, clients) => {
         console.log(clients);
         if(!!err){
             console.warn(err);

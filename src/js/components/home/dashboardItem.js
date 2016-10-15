@@ -35,7 +35,6 @@ class DashboardItem extends Component {
     }
 
     render() {
-
         let myStyle = styles.row; 
         if(this.props.selected == this.props.index){
           myStyle = styles.selected; 
