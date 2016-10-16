@@ -57,9 +57,7 @@ class EditClient extends Component {
 				<input style={styles.input}  type="text" value={this.state.formdata['phone']} placeholder="phone" onChange={(e) => {
 					this.onChange("phone", e.target.value)
 				}}/>
-				<input style={styles.input}  type="number" value={this.state.formdata['discount']} placeholder="discount" onChange={(e) => {
-					this.onChange("discount", e.target.value)
-				}}/>
+				<p>Discount: {this.state.formdata['discount']}</p>
 				<button style={styles.input}  onClick={() => {
 					this.setState({
 						formdata: {},
