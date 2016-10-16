@@ -14,7 +14,8 @@ class CreateNewClient extends Component {
 
 	_getInitialState(){
 		return {
-			formdata: {}
+			formdata: {},
+			msg: ""
 		}; 
 	}
 
@@ -39,15 +40,19 @@ class CreateNewClient extends Component {
 				console.warn(err); 
 			}else{
 				this.resetForm(); 
+				this.setState({
+					msg: "Customer was created"
+				}); 
 			}
 		}); 
 	}
 
 	getForm(){
-		console.log(this.state.client); 
+		console.log(this.state.formdata); 
 		return (
 			<div>
 				<h3>New client</h3>
+				<p> {this.state.msg} </p>
 				<input style={styles.input}  type="text" value={this.state.formdata['name']} placeholder="name" onChange={(e) => {
 					this.onChange("name", e.target.value)
 				}}/>
