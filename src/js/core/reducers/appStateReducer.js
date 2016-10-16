@@ -24,6 +24,12 @@ export default function appStateReducer(state = initialState.appState, action){
 			});
 			return newState;
 
+		case CONSTANTS.GOT_PENDING_FINANCIAL_MANAGER_REQUESTS:
+			var newState = Object.assign({}, state, {
+				financialManagerRequests: action.payload
+			});
+			return newState;
+		
 		default: 
 			return state; 
 	}

@@ -46,14 +46,8 @@ export function setRequestToApproved(id, dispatch, callback) {
     put('/customer_service_manager/planning_request/'+ id, payload, (err, response) => {
         if(!!err){
             console.warn(err);
-        }else{
-            /*
-            dispatch({
-                type: CONSTANTS.GOT_PENDING_CUSTOMER_MANAGER_REQUESTS,
-                payload: requests
-            });
-            */
         }
+
         callback(err, response); 
     });
 }
@@ -66,14 +60,49 @@ export function setRequestToRejected(id, dispatch, callback) {
     put('/customer_service_manager/planning_request/'+ id, payload, (err, response) => {
         if(!!err){
             console.warn(err);
+        } 
+
+        callback(err, response); 
+    });
+}
+
+export function getPendingFinancialManagerRequests(dispatch){
+    get('/financial_manager/planning_request', (err, requests) => {
+        if(!!err){
+            console.warn(err);
         }else{
-            /*
             dispatch({
-                type: CONSTANTS.GOT_PENDING_CUSTOMER_MANAGER_REQUESTS,
+                type: CONSTANTS.GOT_PENDING_FINANCIAL_MANAGER_REQUESTS,
                 payload: requests
             });
-            */
         }
+    });
+}
+
+export function setRequestToFinancialApproved(id, dispatch, callback){
+    var payload = {
+        status: 3
+    }; 
+
+    put('/financial_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }
+
+        callback(err, response); 
+    });
+}
+
+export function setRequestToFinancialRejected(id, dispatch, callback){
+    var payload = {
+        status: 5
+    }; 
+
+    put('/financial_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }
+
         callback(err, response); 
     });
 }

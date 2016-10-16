@@ -2,10 +2,10 @@ import  React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { COLORS } from '../../core/colors'
 import { CONSTANTS } from '../../core/constants'
-import { getPendingFinancialManagerRequests, setRequestFinancialApproved, setRequestFinancialRejected } from '../../api/planningRequestApi'
+import { getPendingFinancialManagerRequests, setRequestToFinancialApproved, setRequestToFinancialRejected } from '../../api/planningRequestApi'
 import Ingress from '../lib/ingress'
 
-class ReviewPlanningRequest extends Component {
+class ReviewPlanningRequestFinancial extends Component {
 
 	constructor(props, context){
 		super(props, context); 
@@ -58,7 +58,7 @@ class ReviewPlanningRequest extends Component {
 		return (
 			<div>
 				<Ingress>
-					2.2 Customer service manager receives the form with client’s request information. She checks the request and can reject it directly, if she feels that it is not feasible at all. Otherwise, she reviews it and redirects it to the first reviewer, the financial manager.
+					2.3 Financial manager receives client’s request for an event from Customer service manager. Financial manager writes his feedback based on the estimated budget by the client. The financial manager redirects it to the administration department manager
 				</Ingress>
 				{bodySection}
 			</div>
@@ -89,22 +89,22 @@ const styles = {
 const mapStateToProps = (state) => {
 	return {
 		user:state.user,
-		requests: state.appState.customerServiceManagerRequests
+		requests: state.appState.financialManagerRequests
 	};
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getPlanningRequests: () => {
-			getPendingCustomerManagerRequests(dispatch); 
+			getPendingFinancialManagerRequests(dispatch); 
 		},
 		approve: (id, callback) => {
-			setRequestToApproved(id, dispatch, callback); 
+			setRequestToFinancialApproved(id, dispatch, callback); 
 		},
 		reject: (id, callback) => {
-			setRequestToRejected(id, dispatch, callback);
+			setRequestToFinancialRejected(id, dispatch, callback);
 		}
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewPlanningRequest); 
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewPlanningRequestFinancial); 

@@ -5,6 +5,7 @@ import {CONSTANTS} from '../../core/constants'
 import {login} from '../../api/userApi'
 import CreatePlanningRequest from '../createPlanningRequest/createPlanningRequest'
 import ReviewPlanningRequest from '../reviewPlanningRequest/reviewPlanningRequest'
+import ReviewPlanningRequestFinancial from '../reviewPlanningRequest/reviewPlanningRequestFinancial'
 
 class Page extends Component {
   
@@ -21,6 +22,14 @@ class Page extends Component {
 
     renderPage(){
       switch(this.props.index){
+        case -1: 
+          return (
+            <div>
+              <h3>Welcome</h3>
+              <p>Select event from the dashboard</p>
+            </div>
+          );
+
         case 0: 
           return (
             <CreatePlanningRequest />
@@ -33,7 +42,7 @@ class Page extends Component {
 
         case 2: 
           return (
-            <div>Some other component 2</div>
+            <ReviewPlanningRequestFinancial />
           );
 
         case 3: 
