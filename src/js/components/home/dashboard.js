@@ -42,7 +42,6 @@ class Dashboard extends Component {
     render() {
        	return (
           <div style={styles.container}>
-            the dashboard
             {this.renderRows()}
           </div>
         ); 
@@ -51,10 +50,9 @@ class Dashboard extends Component {
 
 const styles = {
     container: {
-        padding: 20,
         margin: 0,
-        backgroundColor: COLORS.LIGHT_BLUE,
-        width: 200,
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        width: '25%',
         float: 'left'
     },
 }

@@ -8,6 +8,7 @@ import ReviewPlanningRequest from '../reviewPlanningRequest/reviewPlanningReques
 import ReviewPlanningRequestFinancial from '../reviewPlanningRequest/reviewPlanningRequestFinancial'
 import ReviewPlanningRequestAdmin from '../reviewPlanningRequest/reviewPlanningRequestAdmin'
 import ReviewPlanningRequestCMS from '../reviewPlanningRequest/reviewPlanningRequestCSM'
+import CreateNewClient from '../createNewClient/createNewClient'
 
 
 class Page extends Component {
@@ -57,6 +58,11 @@ class Page extends Component {
           return (
             <ReviewPlanningRequestCMS />
           );
+
+        case 5: 
+          return (
+            <CreateNewClient />
+          );
       }
     }
 
@@ -71,9 +77,10 @@ class Page extends Component {
 
 const styles = {
     container: {
-        padding: 20,
         backgroundColor: COLORS.WHITE,
         textAlign: 'center',
+        float: 'left',
+        width: '75%',
     },
 }
 

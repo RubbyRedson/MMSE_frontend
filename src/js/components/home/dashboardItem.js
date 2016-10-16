@@ -53,14 +53,16 @@ const styles = {
         backgroundColor: COLORS.WHITE
     },
     row: {
-      padding: 10, 
-      margin: 5, 
-      backgroundColor: COLORS.GRAY
+      margin: 10,
+      padding: 10,  
+      backgroundColor: COLORS.GRAY,
+      borderRadius: 2
     },
     selected: {
       padding: 10, 
-      margin: 5, 
-      backgroundColor: COLORS.WHITE
+      margin: 2, 
+      backgroundColor: COLORS.WHITE,
+      borderRadius: 2
     }
 }
 

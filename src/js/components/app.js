@@ -48,7 +48,6 @@ export default class App extends React.Component {
 					<div>
 						<Bar />
 						{getRoute(store.getState().navigation.route)}
-						{footer}
 					</div>
 			  	</Provider>
 			</div>

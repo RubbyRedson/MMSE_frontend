@@ -35,3 +35,14 @@ export function getClientById(id, dispatch) {
         }
     });
 }
+
+export function createNewClient(data, dispatch, callback) {
+    post('/customer_service_manager/client', data, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }
+
+        callback(err, response); 
+    });
+}
+
