@@ -25,7 +25,7 @@ class Dashboard extends Component {
             <DashboardItem name="2.1 Create planning request (Customer service team)" index={0} role_tag={"customer_service"} />
             <DashboardItem name="2.2 Review planning requests (Customer service manager)" index={1} role_tag={"customer_service_manager"}/>
             <DashboardItem name="2.3 Review client request (Financial manager)" index={2} role_tag={"financial_manager"}/>
-            <DashboardItem name="2.4 Review client request (Administration department)" index={3} role_tag={"administration_department"}/>
+            <DashboardItem name="2.4 Review client request (Administration manager)" index={3} role_tag={"administration_manager"}/>
             <DashboardItem name="2.5 Review client request (Customer service manager)" index={4} role_tag={"customer_service_manager"}/>
             <DashboardItem name="3.1 Create new client (Customer service manager)" index={5} role_tag={"customer_service_manager"}/>
             <DashboardItem name="3.2 Modify client (Customer service manager)" index={6} role_tag={"customer_service_manager"}/>

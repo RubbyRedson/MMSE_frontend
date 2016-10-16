@@ -22,3 +22,16 @@ export function getAllClients(dispatch) {
         }
     });
 }
+
+export function getClientById(id, dispatch) {
+    get('/client/' + id, (err, client) => {
+        if(!!err){
+            console.warn(err);
+        }else{
+            dispatch({
+                type: CONSTANTS.GOT_CLIENT,
+                payload: client
+            });
+        }
+    });
+}

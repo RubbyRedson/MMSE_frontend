@@ -12,9 +12,12 @@ export const initialState = {
 	},
 	appState: {
 		clients: null,
+		clientTree: {},
 		selectedDashbordItem: -1,
 		customerServiceManagerRequests: null,
-		financialManagerRequests: null
+		financialManagerRequests: null,
+		adminManagerRequests: null,
+		cmsRequests: null
 	},
 	navigation: {
 		route: {name: "home"},

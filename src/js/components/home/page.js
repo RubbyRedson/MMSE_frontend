@@ -6,6 +6,9 @@ import {login} from '../../api/userApi'
 import CreatePlanningRequest from '../createPlanningRequest/createPlanningRequest'
 import ReviewPlanningRequest from '../reviewPlanningRequest/reviewPlanningRequest'
 import ReviewPlanningRequestFinancial from '../reviewPlanningRequest/reviewPlanningRequestFinancial'
+import ReviewPlanningRequestAdmin from '../reviewPlanningRequest/reviewPlanningRequestAdmin'
+import ReviewPlanningRequestCMS from '../reviewPlanningRequest/reviewPlanningRequestCSM'
+
 
 class Page extends Component {
   
@@ -47,7 +50,12 @@ class Page extends Component {
 
         case 3: 
           return (
-            <div>I dunno</div>
+            <ReviewPlanningRequestAdmin />
+          );
+
+        case 4: 
+          return (
+            <ReviewPlanningRequestCMS />
           );
       }
     }

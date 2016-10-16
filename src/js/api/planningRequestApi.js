@@ -13,14 +13,8 @@ export function createNewPlanningRequest(data, dispatch, callback) {
     post('/customer_service/planning_request', data, (err, response) => {
         if(!!err){
             console.warn(err);
-        }else{
-            /*
-            dispatch({
-                type: CONSTANTS.GOT_ALL_CLIENTS,
-                payload: clients
-            });
-            */
         }
+
         callback(err, response); 
     });
 }
@@ -79,36 +73,6 @@ export function getPendingFinancialManagerRequests(dispatch){
     });
 }
 
-/*
-export function setRequestToFinancialApproved(id, dispatch, callback){
-    var payload = {
-        status: 3
-    }; 
-
-    put('/financial_manager/planning_request/'+ id, payload, (err, response) => {
-        if(!!err){
-            console.warn(err);
-        }
-
-        callback(err, response); 
-    });
-}
-
-export function setRequestToFinancialRejected(id, dispatch, callback){
-    var payload = {
-        status: 5
-    }; 
-
-    put('/financial_manager/planning_request/'+ id, payload, (err, response) => {
-        if(!!err){
-            console.warn(err);
-        }
-
-        callback(err, response); 
-    });
-}
-*/
-
 export function submitFinancialManagerFeedback(id, payload, dispatch, callback){
     payload.status = 3; 
 
@@ -121,3 +85,60 @@ export function submitFinancialManagerFeedback(id, payload, dispatch, callback){
     });
 }
 
+export function getPendingAdminManagerRequests(dispatch) {
+    get('/administration_manager/planning_request', (err, requests) => {
+        if(!!err){
+            console.warn(err);
+        }else{
+            dispatch({
+                type: CONSTANTS.GOT_PENDING_ADMIN_MANAGER_REQUESTS,
+                payload: requests
+            });
+        }
+    });
+}
+
+export function setRequestToAdminApproved(id, dispatch, callback) {
+    var payload = {
+        status: 4
+    }; 
+
+    put('/administration_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }
+
+        callback(err, response); 
+    });
+}
+
+export function setRequestToAdminoRejected(id, dispatch, callback) {
+    var payload = {
+        status: 5
+    }; 
+    
+    put('/administration_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        } 
+
+        callback(err, response); 
+    });
+}
+
+export function getFinishedCSMRequests(dispatch) {
+    get('/customer_service_manager/finished_planning_request', (err, requests) => {
+        if(!!err){
+            console.warn(err);
+        }else{
+            dispatch({
+                type: CONSTANTS.GOT_PENDING_CMS_REQUESTS,
+                payload: requests
+            });
+        }
+    });
+}
+
+
+
+ 
