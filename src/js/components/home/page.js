@@ -12,6 +12,7 @@ import CreateNewClient from '../createNewClient/createNewClient'
 import EditClient from '../editClient/editClient'
 import GiveClientDiscount from '../editClient/giveClientDiscount'
 import CreateSubteamRequest from '../createSubteamRequest/createSubteamRequest'
+import FillExpectedPlan from '../subteam/fillExpectedPlan'
 
 class Page extends Component {
   
@@ -81,7 +82,11 @@ class Page extends Component {
           return (
             <CreateSubteamRequest />
           );
-          
+
+        case 9:
+          return (
+            <FillExpectedPlan />
+          );
       }
     }
 

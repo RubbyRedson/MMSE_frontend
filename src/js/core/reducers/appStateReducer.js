@@ -57,6 +57,44 @@ export default function appStateReducer(state = initialState.appState, action){
 			});
 			return newState;
 
+		case CONSTANTS.GOT_ALL_SUBTEAM_REQUEST:
+
+			var tree = Object.assign({}, state.subteamRequestsTree); 
+			for(var i = 0; i < action.payload.length; i++){
+				var curr = action.payload[i]; 
+				tree[curr.id] = curr; 
+			}
+			
+			var newState = Object.assign({}, state, {
+				subteamRequestsTree: tree,
+				subteamRequests: action.payload
+			});
+
+			return newState;
+
+		case CONSTANTS.UPDATE_SUBTEAM_REQUEST:
+			var newsubteamRequests = []; 
+			for(var i = 0; i < state.subteamRequests.length; i++){
+				var curr = state.subteamRequests[i]; 
+				if(curr.id == action.payload.id){
+					newsubteamRequests.push(action.payload); 
+				}else{
+					newsubteamRequests.push(curr); 
+				}
+			}
+
+			var tree = Object.assign({}, state.subteamRequestsTree); 
+			tree[action.payload.id] = action.payload; 
+			
+			var newState = Object.assign({}, state, {
+				subteamRequestsTree: tree,
+				subteamRequests: newsubteamRequests
+			});
+
+			return newState;
+
+			
+
 
 		default: 
 			return state; 

@@ -18,7 +18,9 @@ export const initialState = {
 		customerServiceManagerRequests: null,
 		financialManagerRequests: null,
 		adminManagerRequests: null,
-		cmsRequests: null
+		cmsRequests: null,
+		subteamRequests: null,
+		subteamRequestsTree: {}
 	},
 	navigation: {
 		route: {name: "home"},

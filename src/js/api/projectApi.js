@@ -10,7 +10,17 @@ export function createProject(data, dispatch, callback){
 
 	post('/production_manager/project', data, (err, project) => {
 		if(!!err){
-			console.warning(err); 
+			console.warn(err); 
+		}
+
+		callback(err, project); 
+	}); 
+}
+
+export function getProjectById(id, dispatch, callback){
+	get('/project/' + id, (err, project) => {
+		if(!!err){
+			console.warn(err); 
 		}
 
 		callback(err, project); 
