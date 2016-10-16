@@ -9,7 +9,7 @@ import ReviewPlanningRequestFinancial from '../reviewPlanningRequest/reviewPlann
 import ReviewPlanningRequestAdmin from '../reviewPlanningRequest/reviewPlanningRequestAdmin'
 import ReviewPlanningRequestCMS from '../reviewPlanningRequest/reviewPlanningRequestCSM'
 import CreateNewClient from '../createNewClient/createNewClient'
-
+import EditClient from '../editClient/editClient'
 
 class Page extends Component {
   
@@ -62,6 +62,11 @@ class Page extends Component {
         case 5: 
           return (
             <CreateNewClient />
+          );
+
+        case 6: 
+          return (
+            <EditClient />
           );
       }
     }

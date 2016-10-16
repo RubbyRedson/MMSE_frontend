@@ -2,7 +2,7 @@ import  React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { COLORS } from '../../core/colors'
 import { CONSTANTS } from '../../core/constants'
-import { getPendingFinancialManagerRequests, setRequestFinancialApproved, setRequestFinancialRejected } from '../../api/planningRequestApi'
+import { getPendingCustomerManagerRequests, setRequestToApproved, setRequestToRejected } from '../../api/planningRequestApi'
 import Ingress from '../lib/ingress'
 
 class ReviewPlanningRequest extends Component {

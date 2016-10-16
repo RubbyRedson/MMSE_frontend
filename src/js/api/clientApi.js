@@ -23,6 +23,20 @@ export function getAllClients(dispatch) {
     });
 }
 
+export function getAllClientsManager(dispatch){
+    get('/client', (err, clients) => {
+        console.log(clients);
+        if(!!err){
+            console.warn(err);
+        }else{
+            dispatch({
+                type: CONSTANTS.GOT_ALL_CLIENTS,
+                payload: clients
+            });
+        }
+    });
+}
+
 export function getClientById(id, dispatch) {
     get('/client/' + id, (err, client) => {
         if(!!err){
@@ -46,3 +60,12 @@ export function createNewClient(data, dispatch, callback) {
     });
 }
 
+export function updateClient(data, dispatch, callback){
+    put('/customer_service_manager/client/' + data.id, data, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }
+
+        callback(err, response); 
+    });
+}
