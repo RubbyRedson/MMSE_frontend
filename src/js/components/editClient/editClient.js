@@ -44,7 +44,6 @@ class EditClient extends Component {
         }); 
     }
 
-
 	getForm(){
 		console.log(this.state.formdata); 
 		return (

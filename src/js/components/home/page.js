@@ -11,6 +11,7 @@ import ReviewPlanningRequestCMS from '../reviewPlanningRequest/reviewPlanningReq
 import CreateNewClient from '../createNewClient/createNewClient'
 import EditClient from '../editClient/editClient'
 import GiveClientDiscount from '../editClient/giveClientDiscount'
+import CreateSubteamRequest from '../createSubteamRequest/createSubteamRequest'
 
 class Page extends Component {
   
@@ -26,6 +27,7 @@ class Page extends Component {
     componentDidMount() {}
 
     renderPage(){
+      console.log(this.props.index); 
       switch(this.props.index){
         case -1: 
           return (
@@ -73,6 +75,11 @@ class Page extends Component {
         case 7: 
           return (
             <GiveClientDiscount />
+          );
+
+        case 8:
+          return (
+            <CreateSubteamRequest />
           );
           
       }

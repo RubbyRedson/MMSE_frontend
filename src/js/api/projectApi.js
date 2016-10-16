@@ -6,17 +6,13 @@ import { CONSTANTS } from '../core/constants'
 * @param dispatch The dispatcher that will tell the store that we have new stuff
 * Get all promotions from the API
 */
-export function getAllPromotions(dispatch) {
+export function createProject(data, dispatch, callback){
 
-	get('/promotion', (err, promotions) => {
-		console.log(promotions); 
+	post('/production_manager/project', data, (err, project) => {
 		if(!!err){
 			console.warning(err); 
-		}else{
-			dispatch({
-				type: CONSTANTS.GOT_ALL_PROMOTIONS,
-				payload: promotions 
-			}); 
 		}
+
+		callback(err, project); 
 	}); 
 }
