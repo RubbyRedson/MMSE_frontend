@@ -69,3 +69,16 @@ export function updateClient(data, dispatch, callback){
         callback(err, response); 
     });
 }
+
+export function getClientProjectSum(id, dispatch){
+    get('/customer_service_manager/client/'+id+'/project_sum', (err, sum) => {
+        if(!!err){
+            console.warn(err);
+        }else{
+            dispatch({
+                type: CONSTANTS.GOT_CLIENT_PROJECT_SUM,
+                payload: sum
+            });
+        }
+    });
+}

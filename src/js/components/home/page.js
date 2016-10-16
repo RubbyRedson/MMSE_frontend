@@ -10,6 +10,7 @@ import ReviewPlanningRequestAdmin from '../reviewPlanningRequest/reviewPlanningR
 import ReviewPlanningRequestCMS from '../reviewPlanningRequest/reviewPlanningRequestCSM'
 import CreateNewClient from '../createNewClient/createNewClient'
 import EditClient from '../editClient/editClient'
+import GiveClientDiscount from '../editClient/giveClientDiscount'
 
 class Page extends Component {
   
@@ -68,6 +69,12 @@ class Page extends Component {
           return (
             <EditClient />
           );
+
+        case 7: 
+          return (
+            <GiveClientDiscount />
+          );
+          
       }
     }
 

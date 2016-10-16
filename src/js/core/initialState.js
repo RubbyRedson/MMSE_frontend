@@ -13,6 +13,7 @@ export const initialState = {
 	appState: {
 		clients: null,
 		clientTree: {},
+		clientSum: -1, 
 		selectedDashbordItem: -1,
 		customerServiceManagerRequests: null,
 		financialManagerRequests: null,

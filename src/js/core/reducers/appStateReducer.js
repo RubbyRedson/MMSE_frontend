@@ -51,6 +51,12 @@ export default function appStateReducer(state = initialState.appState, action){
 
 			return newState;
 
+		case CONSTANTS.GOT_CLIENT_PROJECT_SUM:
+			var newState = Object.assign({}, state, {
+				clientSum: action.payload
+			});
+			return newState;
+
 
 		default: 
 			return state; 
