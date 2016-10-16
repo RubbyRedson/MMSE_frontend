@@ -2,7 +2,7 @@ import  React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { COLORS } from '../../core/colors'
 import { CONSTANTS } from '../../core/constants'
-import { getPendingFinancialManagerRequests, setRequestToFinancialApproved, setRequestToFinancialRejected } from '../../api/planningRequestApi'
+import { getPendingFinancialManagerRequests, submitFinancialManagerFeedback } from '../../api/planningRequestApi'
 import Ingress from '../lib/ingress'
 
 class ReviewPlanningRequestFinancial extends Component {
@@ -13,26 +13,33 @@ class ReviewPlanningRequestFinancial extends Component {
 	}
 
 	_getInitialState(){
-		return {}; 
+		return {
+			formdata: {}
+		}; 
 	}
 
 	componentDidMount(){
 		this.props.getPlanningRequests(); 
 	}
 
-	approve(request){
-		console.log("Arroving: ", request); 
-		this.props.approve(request.id, () => {
+	submit(request){
+		var payload = {
+			feedback: this.state.formdata.feedback,
+		}
+
+		this.props.submit(request.id, payload, () => {
 			this.props.getPlanningRequests(); 
 		}); 
 	}
 
-	reject(request){
-		console.log("Rejecting: ", request); 
-		this.props.reject(request.id, () => {
-			this.props.getPlanningRequests(); 
-		}); 
-	}
+    onChange(key, value){
+        var formdata = this.state.formdata; 
+        formdata[key] = value; 
+        this.setState({
+          formdata: formdata
+        }); 
+    }
+
 
 	renderRequests(){
 		return this.props.requests.map((request, i) => {
@@ -40,8 +47,10 @@ class ReviewPlanningRequestFinancial extends Component {
 				<div style={styles.clientBox} key={"clientBox" + request.id}>
 					<p>client_id: {request.client} </p>
 					<p>{request.description}</p>
-					<button style={styles.input} onClick={this.approve.bind(this, request)}>Approve</button>
-					<button style={styles.input} onClick={this.reject.bind(this, request)}>Reject</button>
+					<input style={styles.input}  type="text" value={this.state.formdata['feedback']} placeholder="feedback" onChange={(e) => {
+						this.onChange("feedback", e.target.value)
+					}}/>
+					<button style={styles.input} onClick={this.submit.bind(this, request)}>Submit</button>
 				</div>
 			);
 		}); 
@@ -98,12 +107,9 @@ const mapDispatchToProps = (dispatch) => {
 		getPlanningRequests: () => {
 			getPendingFinancialManagerRequests(dispatch); 
 		},
-		approve: (id, callback) => {
-			setRequestToFinancialApproved(id, dispatch, callback); 
+		submit: (id, payload, callback) => {
+			submitFinancialManagerFeedback(id, payload, dispatch, callback); 
 		},
-		reject: (id, callback) => {
-			setRequestToFinancialRejected(id, dispatch, callback);
-		}
 	};
 }
 

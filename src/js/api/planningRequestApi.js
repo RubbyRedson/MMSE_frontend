@@ -79,6 +79,7 @@ export function getPendingFinancialManagerRequests(dispatch){
     });
 }
 
+/*
 export function setRequestToFinancialApproved(id, dispatch, callback){
     var payload = {
         status: 3
@@ -106,3 +107,17 @@ export function setRequestToFinancialRejected(id, dispatch, callback){
         callback(err, response); 
     });
 }
+*/
+
+export function submitFinancialManagerFeedback(id, payload, dispatch, callback){
+    payload.status = 3; 
+
+    put('/financial_manager/planning_request/'+ id, payload, (err, response) => {
+        if(!!err){
+            console.warn(err);
+        }
+
+        callback(err, response); 
+    });
+}
+
