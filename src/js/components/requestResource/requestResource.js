@@ -36,7 +36,8 @@ class RequestResource extends Component {
 				var data = {
 					project: request.project, 
 					type: 'budget',
-					proposal: tmp.budgetProposal
+					proposal: tmp.budgetProposal,
+					subteam: request.reportedBySubteam
 				};  
 
 				this.props.createProposal(data, (err, _data) => {
@@ -47,7 +48,8 @@ class RequestResource extends Component {
 				var data = {
 					project: request.project, 
 					type: 'people',
-					proposal: tmp.hireProposal
+					proposal: tmp.hireProposal,
+					subteam: request.reportedBySubteam
 				};  
 
 				this.props.createProposal(data, (err, _data) => {
@@ -262,6 +264,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		updateToReviewed: (request, callback) => {
 			request.status = 2; 
+
 			updateManagerSubteamRequests(request, dispatch, callback); 
 		}
 	};
