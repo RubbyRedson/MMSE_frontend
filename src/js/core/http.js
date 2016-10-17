@@ -70,7 +70,7 @@ export function post(url, payload, callback) {
  * performs a HTTP Delete
  */
 export function del(url, callback) {
-    $.ajax(buildRequest(url, 'DEL')).then((res) => {
+    $.ajax(buildRequest(url, 'DELETE')).then((res) => {
         callback(null, res);
     }).fail(((err) => {
         callback(err, null);

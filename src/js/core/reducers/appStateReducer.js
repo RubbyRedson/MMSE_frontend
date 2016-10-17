@@ -108,7 +108,12 @@ export default function appStateReducer(state = initialState.appState, action){
 			});
 			return newState;
 
-			
+		case CONSTANTS.GOT_HR_REQUESTS:
+			var newState = Object.assign({}, state, {
+				hrRequests: action.payload
+			});
+			return newState;
+
 
 
 		default: 

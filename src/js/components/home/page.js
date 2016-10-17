@@ -14,6 +14,7 @@ import GiveClientDiscount from '../editClient/giveClientDiscount'
 import CreateSubteamRequest from '../createSubteamRequest/createSubteamRequest'
 import FillExpectedPlan from '../subteam/fillExpectedPlan'
 import RequestResource from '../requestResource/requestResource'
+import CreateJobAdvertisement from '../jobAdvertisement/createJobAdvertisement'
 
 class Page extends Component {
   
@@ -93,6 +94,11 @@ class Page extends Component {
           return (
             <RequestResource />
           );
+
+        case 11:
+          return (
+            <CreateJobAdvertisement />
+          );          
       }
     }
 

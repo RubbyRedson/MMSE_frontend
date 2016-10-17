@@ -15,3 +15,36 @@ export function createProposal(data, dispatch, callback){
 		callback(err, project); 
 	}); 
 }
+
+export function getHrRequests(dispatch){
+	get('/hr_team/resource_request', (err, requests) => {
+		if(!!err){
+			console.warn(err); 
+		}
+
+		dispatch({
+			type: CONSTANTS.GOT_HR_REQUESTS,
+			payload: requests
+		}); 
+	}); 
+}
+
+export function createJobAdvertisement(data, dispatch, callback){
+	post('/hr_team/job_advertisement', data, (err, response) => {
+		if(!!err){
+			console.warn(err); 
+		}
+		callback(err, response); 
+	}); 
+}
+
+export function deleteResourceRequest(id, dispatch, callback){
+	del('/hr_team/resource_request/' + id, (err, response) => {
+		if(!!err){
+			console.warn(err); 
+		}
+		callback(err, response); 
+	}); 
+}
+
+

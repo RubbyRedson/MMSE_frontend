@@ -6,6 +6,7 @@ import { getConflictingRequsts, getSubteamById, updateManagerSubteamRequests } f
 import { createProposal } from '../../api/resourceRequestApi'
 import { getProjectById } from '../../api/projectApi'
 import Ingress from '../lib/ingress'
+import Project from '../lib/project'
 
 class RequestResource extends Component {
 
@@ -150,13 +151,7 @@ class RequestResource extends Component {
 
 			if(request.projectObject){
 				projectBody = (
-					<div style={styles.project} >
-						<p>Name: {request.projectObject.name}</p>
-						<p>Description: {request.projectObject.description}</p>
-						<p>Cost. {request.projectObject.cost}</p>
-						<p>Start: {request.projectObject.start}</p>
-						<p>Stop: {request.projectObject.stop}</p>
-					</div>
+					<Project project={request.projectObject} />
 				); 
 			}
 
@@ -188,7 +183,7 @@ class RequestResource extends Component {
 		return (
 			<div>
 				<Ingress>
-					5.1 In case there are any scheduling conflicts or resource shortage, a Department manager can initiate a request to HR team for additional resources. HR team solves the issue through staff recruitment or outsourcing
+					5.1 In case there are any scheduling conflicts or resource shortage, a Department manager can initiate a request to HR team for additional resources. HR team solves the issue through staff recruitment or outsourcing. If one of the subteams reported that they need a bigger budget the department manager can initiate a request for a higher budget with the financial manager. 
 				</Ingress>
 				{ bodySection }
 			</div>
