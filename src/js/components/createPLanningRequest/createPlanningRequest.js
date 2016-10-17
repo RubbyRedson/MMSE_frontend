@@ -38,7 +38,6 @@ class CreatePlanningRequest extends Component {
     }
 
 	onClick(){
-		console.log("Submitting"); 
 		this.props.createRequest(this.state.formdata, (err, response) => {
 			if(err){
 				console.warn(err); 
@@ -53,9 +52,13 @@ class CreatePlanningRequest extends Component {
 		return (
 			<div>
 				<h3>Working with client: {this.state.client.name}</h3>
+				<input style={styles.input}  type="number" value={this.state.formdata['proposed_budget']} placeholder="Proposed budget" onChange={(e) => {
+					this.onChange("proposed_budget", e.target.value)
+				}}/>
 				<input style={styles.input}  type="text" value={this.state.formdata['description']} placeholder="description" onChange={(e) => {
 					this.onChange("description", e.target.value)
 				}}/>
+				<button style={styles.input}  onClick={this.resetForm.bind(this)} >Cancel</button>
 				<button style={styles.input}  onClick={this.onClick.bind(this)} >Submit</button>
 			</div>
 		); 

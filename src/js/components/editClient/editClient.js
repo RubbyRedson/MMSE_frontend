@@ -26,7 +26,7 @@ class EditClient extends Component {
 
 	onSubmit(){
 		console.log(this.state.formdata); 
-		this.props.updateClient(this.state.formdata, () => {
+		this.props.updateClientDetails(this.state.formdata, () => {
 			this.props.getAllClients();
 
 			this.setState({
@@ -134,7 +134,7 @@ const mapDispatchToProps = (dispatch) => {
 		getAllClients: () => {
 			getAllClientsManager(dispatch); 
 		},
-		updateClient : (client, callback) => {
+		updateClientDetails : (client, callback) => {
 			updateClient(client, dispatch, callback); 
 		}
 	};

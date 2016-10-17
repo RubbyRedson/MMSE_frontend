@@ -4,6 +4,7 @@ import { COLORS } from '../../core/colors'
 import { CONSTANTS } from '../../core/constants'
 import { getPendingAdminManagerRequests, setRequestToAdminApproved, setRequestToAdminoRejected } from '../../api/planningRequestApi'
 import Ingress from '../lib/ingress'
+import PlanningRequest from '../lib/planningRequest'
 
 class ReviewPlanningRequestAdmin extends Component {
 
@@ -38,9 +39,7 @@ class ReviewPlanningRequestAdmin extends Component {
 		return this.props.requests.map((request, i) => {
 			return (
 				<div style={styles.clientBox} key={"clientBox" + request.id}>
-					<p>client_id: {request.client} </p>
-					<p>{request.description}</p>
-					<p>Financial manager feedback: {request.feedback}</p>
+					<PlanningRequest request={request}/>
 					<button style={styles.input} onClick={this.approve.bind(this, request)}>Approve</button>
 					<button style={styles.input} onClick={this.reject.bind(this, request)}>Reject</button>
 				</div>
@@ -83,7 +82,7 @@ const styles = {
     clientBox: {
     	margin: 3, 
     	padding: 10,
-    	backgroundColor: COLORS.GRAY
+    	backgroundColor: 'rgba(0, 0, 0, 0.2)'
     }
 }
 

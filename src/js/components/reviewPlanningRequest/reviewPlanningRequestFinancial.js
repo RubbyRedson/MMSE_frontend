@@ -4,6 +4,8 @@ import { COLORS } from '../../core/colors'
 import { CONSTANTS } from '../../core/constants'
 import { getPendingFinancialManagerRequests, submitFinancialManagerFeedback } from '../../api/planningRequestApi'
 import Ingress from '../lib/ingress'
+import PlanningRequest from '../lib/planningRequest'
+
 
 class ReviewPlanningRequestFinancial extends Component {
 
@@ -45,8 +47,7 @@ class ReviewPlanningRequestFinancial extends Component {
 		return this.props.requests.map((request, i) => {
 			return (
 				<div style={styles.clientBox} key={"clientBox" + request.id}>
-					<p>client_id: {request.client} </p>
-					<p>{request.description}</p>
+					<PlanningRequest request={request}/>
 					<input style={styles.input}  type="text" value={this.state.formdata['feedback']} placeholder="feedback" onChange={(e) => {
 						this.onChange("feedback", e.target.value)
 					}}/>
@@ -91,7 +92,7 @@ const styles = {
     clientBox: {
     	margin: 3, 
     	padding: 10,
-    	backgroundColor: COLORS.GRAY
+    	backgroundColor: 'rgba(0, 0, 0, 0.2)'
     }
 }
 

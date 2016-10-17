@@ -263,7 +263,7 @@ const mapDispatchToProps = (dispatch) => {
 			createProposal(proposal, dispatch, callback); 
 		},
 		updateToReviewed: (request, callback) => {
-			request.status = 2; 
+			request.status = 3; 
 
 			updateManagerSubteamRequests(request, dispatch, callback); 
 		}

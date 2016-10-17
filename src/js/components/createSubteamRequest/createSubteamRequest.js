@@ -39,7 +39,7 @@ class CreateSubteamRequest extends Component {
 
 	onClick(){
 		console.log("Submitting"); 
-		this.props.createProject(this.state.formdata, (err, response) => {
+		this.props.createTheProject(this.state.formdata, (err, response) => {
 			if(err){
 				console.warn(err); 
 			}else{
@@ -127,7 +127,7 @@ const mapDispatchToProps = (dispatch) => {
 		getAllClients: () => {
 			getAllClientsManager(dispatch); 
 		},
-		createProject: (data, callback) => {
+		createTheProject: (data, callback) => {
 			createProject(data, dispatch, callback); 
 		},
 	};

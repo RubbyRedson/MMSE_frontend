@@ -5,6 +5,8 @@ import { CONSTANTS } from '../../core/constants'
 import { getFinishedCSMRequests } from '../../api/planningRequestApi'
 import { getClientById } from '../../api/clientApi'
 import Ingress from '../lib/ingress'
+import PlanningRequest from '../lib/planningRequest'
+import Client from '../lib/client'
 
 class ReviewPlanningRequestCSM extends Component {
 
@@ -38,9 +40,7 @@ class ReviewPlanningRequestCSM extends Component {
 				let client = this.props.clientTree[request.client]; 
 				clientInfo = (
 					<div>
-						<p>Name: {client.name}</p>
-						<p>Phone: {client.phone}</p>
-						<p>Discount: {client.discount}</p>
+						<Client client={client} />
 					</div>
 				); 
 			}
@@ -50,9 +50,7 @@ class ReviewPlanningRequestCSM extends Component {
 			); 
 			return (
 				<div style={styles.clientBox} key={"clientBox" + request.id}>
-					<p>client_id: {request.client} </p>
-					<p>{request.description}</p>
-					<p>Financial manager feedback: {request.feedback}</p>
+					<PlanningRequest request={request} />
 					{ approveLabel }
 					{ clientInfo }
 					<button style={styles.input} onClick={this.getClient.bind(this, request.client)}>Get client details</button>
@@ -96,7 +94,7 @@ const styles = {
     clientBox: {
     	margin: 3, 
     	padding: 10,
-    	backgroundColor: COLORS.GRAY
+    	backgroundColor: 'rgba(0, 0, 0, 0.2)'
     }
 }
 
