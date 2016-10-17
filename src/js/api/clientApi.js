@@ -37,7 +37,7 @@ export function getAllClientsManager(dispatch){
     });
 }
 
-export function getClientById(id, dispatch) {
+export function getClientById(id, dispatch, callback) {
     get('/client/' + id, (err, client) => {
         if(!!err){
             console.warn(err);
@@ -46,6 +46,10 @@ export function getClientById(id, dispatch) {
                 type: CONSTANTS.GOT_CLIENT,
                 payload: client
             });
+        }
+
+        if(callback){
+            callback(err, client); 
         }
     });
 }

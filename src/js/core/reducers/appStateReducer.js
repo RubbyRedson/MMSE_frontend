@@ -114,6 +114,12 @@ export default function appStateReducer(state = initialState.appState, action){
 			});
 			return newState;
 
+		case CONSTANTS.GOT_FINANCIAL_REQUESTS:
+			var newState = Object.assign({}, state, {
+				financialRequests: action.payload
+			});
+			return newState;
+
 
 
 		default: 

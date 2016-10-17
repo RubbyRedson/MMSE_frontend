@@ -15,6 +15,7 @@ import CreateSubteamRequest from '../createSubteamRequest/createSubteamRequest'
 import FillExpectedPlan from '../subteam/fillExpectedPlan'
 import RequestResource from '../requestResource/requestResource'
 import CreateJobAdvertisement from '../jobAdvertisement/createJobAdvertisement'
+import BudgetNegotiations from '../budgetNegotiations/budgetNegotiations'
 
 class Page extends Component {
   
@@ -98,7 +99,13 @@ class Page extends Component {
         case 11:
           return (
             <CreateJobAdvertisement />
-          );          
+          );    
+
+        case 12:
+          return (
+            <BudgetNegotiations />
+          );   
+   
       }
     }
 
@@ -113,7 +120,7 @@ class Page extends Component {
 
 const styles = {
     container: {
-        backgroundColor: COLORS.WHITE,
+        backgroundColor: 'rgba(255, 255, 255, 0.6)',
         textAlign: 'center',
         float: 'left',
         width: '75%',

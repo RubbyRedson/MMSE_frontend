@@ -29,6 +29,19 @@ export function getHrRequests(dispatch){
 	}); 
 }
 
+export function getAllFinancialRequests(dispatch){
+	get('/financial_manager/resource_request', (err, requests) => {
+		if(!!err){
+			console.warn(err); 
+		}
+
+		dispatch({
+			type: CONSTANTS.GOT_FINANCIAL_REQUESTS,
+			payload: requests
+		}); 
+	}); 
+}
+
 export function createJobAdvertisement(data, dispatch, callback){
 	post('/hr_team/job_advertisement', data, (err, response) => {
 		if(!!err){
@@ -43,6 +56,16 @@ export function deleteResourceRequest(id, dispatch, callback){
 		if(!!err){
 			console.warn(err); 
 		}
+		callback(err, response); 
+	}); 
+}
+
+export function setResourceStatus(id, data, dispatch, callback){
+	put('/financial_manager/set_resource_request_status/' + id, data, (err, response) => {
+		if(!!err){
+			console.warn(err); 
+		}
+
 		callback(err, response); 
 	}); 
 }

@@ -34,7 +34,7 @@ class Dashboard extends Component {
             <DashboardItem name="4.2 Fill expected plan(Subteam)" index={9} role_tag={"sub_team"} />
             <DashboardItem name="5.1 Request aditional resource (Department manager)" index={10} role_tag={"production_manager"}/>
             <DashboardItem name="5.2 Create job advertisement (HR team)" index={11} role_tag={"hr_team"}/>
-            <DashboardItem name="6.1 Request budget negotiation (Deparment manager)" index={12} role_tag={"production_manager"}/>
+            <DashboardItem name="6.1 Request budget negotiation (Financial manager)" index={12} role_tag={"financial_manager"}/>
           </div>
       ); 
     }

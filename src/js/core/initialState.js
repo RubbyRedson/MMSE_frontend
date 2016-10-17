@@ -22,7 +22,8 @@ export const initialState = {
 		subteamRequests: null,
 		subteamRequestsTree: {},
 		subteamTree: {},
-		hrRequests: null
+		hrRequests: null,
+		financialRequests: null
 	},
 	navigation: {
 		route: {name: "home"},
