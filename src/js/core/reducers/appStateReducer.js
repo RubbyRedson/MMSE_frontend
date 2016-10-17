@@ -3,6 +3,11 @@ import {initialState} from '../initialState'
 
 export default function appStateReducer(state = initialState.appState, action){
 	switch(action.type){
+		
+		case CONSTANTS.LOGOUT: 
+			var newState = Object.assign({}, initialState.appState);
+			return newState; 
+
 
 		case CONSTANTS.GOT_ALL_CLIENTS:
 			var newState = Object.assign({}, state, {

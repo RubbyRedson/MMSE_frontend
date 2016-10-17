@@ -7,8 +7,8 @@ export default function Client({client}){
 		<div style={styles.project} >
 			<h4>Client</h4>
 			<p>Name: {client.name}</p>
-			<p>Name: {client.phone}</p>
-			<p>Name: {client.discount}</p>
+			<p>Phone: {client.phone}</p>
+			<p>Disount: {client.discount}</p>
 		</div>
 	); 
 }
