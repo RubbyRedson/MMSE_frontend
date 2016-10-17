@@ -93,6 +93,21 @@ export default function appStateReducer(state = initialState.appState, action){
 
 			return newState;
 
+		case CONSTANTS.GOT_CONFLICTING_RESOURCE_REQUESTS:
+			var newState = Object.assign({}, state, {
+				subteamRequests: action.payload
+			});
+			return newState;
+
+		case CONSTANTS.GOT_SUBTEAM:
+
+			var tree = Object.assign({}, state.subteamTree); 
+			tree[action.payload.id] = action.payload;
+			var newState = Object.assign({}, state, {
+				subteamTree: tree
+			});
+			return newState;
+
 			
 
 

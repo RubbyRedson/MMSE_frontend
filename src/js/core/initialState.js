@@ -20,7 +20,8 @@ export const initialState = {
 		adminManagerRequests: null,
 		cmsRequests: null,
 		subteamRequests: null,
-		subteamRequestsTree: {}
+		subteamRequestsTree: {},
+		subteamTree: {}
 	},
 	navigation: {
 		route: {name: "home"},
