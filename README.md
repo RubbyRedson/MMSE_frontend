@@ -1,4 +1,13 @@
 # Setup
+## Prerequisites
+It assumed that you know: 
+- Reactjs
+- Javascript
+- How to make a sandwich
+
+And have node package manager installed.
+
+
 ## Install
 - `git clone <project.git>`
 - `npm install`
