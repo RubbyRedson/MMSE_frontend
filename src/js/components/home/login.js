@@ -21,6 +21,7 @@ class Login extends Component {
     componentDidMount() {}
 
     onChange(key, value){
+        console.log(value); 
         var formdata = this.state.formdata; 
         formdata[key] = value; 
         this.setState({
