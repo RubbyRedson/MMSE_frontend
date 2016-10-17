@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 import {COLORS} from '../../core/colors'
 import {CONSTANTS} from '../../core/constants'
 import {login} from '../../api/userApi'
+import { ReactTestUtils, renderIntoDocument } from 'react-addons-test-utils'
+//require('react/addons').addons.TestUtils
+//var ReactTestUtils = require('react-addons-test-utils');
 
 class Login extends Component {
 
@@ -38,7 +41,7 @@ class Login extends Component {
     }
 
     render() {
-     		return (
+      return (
      			  <div style={styles.container} >
               <h3>Login to continue</h3>
               <p style={styles.error}>{this.state.err}</p>

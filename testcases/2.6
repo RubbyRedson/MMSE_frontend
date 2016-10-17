@@ -4,27 +4,32 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:3211/" />
-<title>login</title>
+<title>3.1</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">login</td></tr>
+<tr><td rowspan="1" colspan="3">3.1</td></tr>
 </thead><tbody>
 <tr>
-	<td>open</td>
-	<td>http://localhost:3211</td>
+	<td>pause</td>
+	<td>1000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>sendKeys</td>
 	<td>css=input[type=&quot;text&quot;]</td>
-	<td>customer_service@sep.com</td>
+	<td>customer_service_manager@sep.com</td>
 </tr>
 <tr>
 	<td>sendKeys</td>
 	<td>css=input[type=&quot;password&quot;]</td>
 	<td>abc123</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button</td>
+	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
@@ -33,7 +38,42 @@
 </tr>
 <tr>
 	<td>click</td>
+	<td>//div[@id='main']/div/div/div[2]/div/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input[type=&quot;text&quot;]</td>
+	<td>Mike mikson</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input[type=&quot;text&quot;]</td>
+	<td>0722445577</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input[type=&quot;number&quot;]</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>css=button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=p</td>
 	<td></td>
 </tr>
 
