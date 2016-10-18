@@ -3,6 +3,7 @@
 It assumed that you know: 
 - Reactjs
 - Javascript
+- Firefox (for running tests)
 - How to make a sandwich
 
 And have node package manager installed.
@@ -28,3 +29,6 @@ npm start
 ```
 
 This is all you should have to do in order to get started. 
+
+# Testing
+The acceptance testing of the UI have beed done with [selenium IDE](https://addons.mozilla.org/sv-se/firefox/addon/selenium-ide/). The tests can be loaded from the `tescases` folder and you will need to install the plugin in your Firefox browser (no, it doesn't work for any other browser, including chrome). 
